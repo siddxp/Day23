@@ -1,25 +1,28 @@
 package com.company;
+import java.util.ArrayList;
 
-public class EmployeeWageArray {
+
+public class EmployeeWageArray implements EmpWageBuilder {
     // Constants
     public static final int IS_FULL_TIME = 1;
     public static final int IS_PART_TIME = 2;
     private int numOfCompnaies = 0;
-    private ComputeEmployeeWage[] computeEmployeeWage;
+    private final ArrayList<ComputeEmployeeWage> computeEmployeeWageArrayList;
 
     public EmployeeWageArray(){
-        computeEmployeeWage = new ComputeEmployeeWage[5];
+        computeEmployeeWageArrayList = new ArrayList<>();
     }
 
     public void addCompanyToArray(String companyName, int empRate, int numberOfWorkingDays, int numberOfWorkingHours){
-        computeEmployeeWage[numOfCompnaies] = new ComputeEmployeeWage(companyName, empRate, numberOfWorkingDays, numberOfWorkingHours);
+        computeEmployeeWage computeEmployeeWage = new ComputeEmployeeWage(companyName, empRate, numberOfWorkingDays, numberOfWorkingHours);
+			computeEmployeeWageArrayList.add(computeEmployeeWage);
         numOfCompnaies++;
     }
 
     public void computeEmpWage(){
         for (int i = 0; i<numOfCompnaies;i++){
-            computeEmployeeWage[i].setTotalWage(computeEmpWagesForACompany(computeEmployeeWage[i]));
-            System.out.println(computeEmployeeWage[i]);
+            computeEmployeeWageArrayList.get[i].setTotalWage(computeEmpWagesForACompany(computeEmployeeWageArrayList.get[i]));
+            System.out.println(computeEmployeeWageArrayList.get[i]);
         }
     }
 
