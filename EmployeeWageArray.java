@@ -1,6 +1,6 @@
 package com.company;
 
-public class EmployeeWageArray {
+public class EmployeeWageArray implements EmpWageBuilder {
     // Constants
     public static final int IS_FULL_TIME = 1;
     public static final int IS_PART_TIME = 2;
@@ -26,7 +26,7 @@ public class EmployeeWageArray {
     /**
      * This is a void method used to calculate the salary of the employee
      */
-    private int computeEmpWagesForACompany(ComputeEmployeeWage computeEmployeeWage){
+    public int computeEmpWagesForACompany(ComputeEmployeeWage computeEmployeeWage){
 
         // Variables
         int empHours = 0;
